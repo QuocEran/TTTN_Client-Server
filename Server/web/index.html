@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta name="author" content="Quoc Chuong">
+        <title>ESP8266 WebSocket</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <style>
+        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        </style>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+        <!-- Top container -->
+        <div class="nav">
+            <span class="nav_logo"></span>
+            <div class="nav_infor">
+                <div class="nav_infor_1">ĐẠI HỌC BÁCH KHOA TP.HCM</div>
+                <div>KHOA ĐIỆN - ĐIỆN TỬ</div>
+                <div>BỘ MÔN ĐIỆN TỬ</div>
+            </div>
+            <!-- <ul class="nav_menu">
+                <li class="nav_items">
+                    <a href="#" class="nav_links 0" >Home</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#slide_1" class="nav_links 1" >Lý thuyết</a>
+                </li>
+                <li class="nav_items"> 
+                    <a href="#slide_2" class="nav_links 2" >Sơ đồ mô tả</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#slide_3" class="nav_links 3">HTTP</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#slide_4" class="nav_links 4">WebSocket</a>
+                </li>
+            </ul> -->
+        </div>
+        <!-- Body container -->
+    <div class="field">
+        <div id="field_1">   
+            <div class="infor_image"></div>
+            <div class="infor">
+                <h3>THỰC TẬP TỐT NGHIỆP</h3>
+                <h4>Mô hình Server - Client trong hệ thống nhúng</h4>
+            </div> 
+            <div class="ws_field">WebSocket
+                <div class="ws_status">
+                    <a href="/" id="status_logo"><i class="fas fa-plug"></i></a>
+                    <h4>WebSocket status</h4>
+                    <span id="status" style="font-weight: bold;"> disconnected </span>
+                </div>
+                <div class="button_status"> 
+                    <a href="/" id="button_logo"><i class="fas fa-hand-point-down"></i></a>
+                    <h4>Trạng thái nút nhấn</h4>
+                    <span id="btn" style="font-weight: bold;"> Undefined </span>
+                </div>
+                <div class="rainsensor_status"> 
+                    <a href="/" id="button_logo"><i class="fas fa-cloud-rain"></i></a>
+                    <h4>Cảm biến mưa</h4>
+                    <span id="btn" style="font-weight: bold;"> Undefined </span>
+                </div>
+                <div class="led_status"> 
+                    <a href="/" id="led_logo"><i class="fas fa-lightbulb"></i></a>
+                    <h4>Điều khiển đèn</h4>
+                    <div class="led_container">
+                        <h5>Đèn 1</h5>
+                        <input type="checkbox" id="led 1" name="led" disabled="true" />
+                    </div>    
+                    <div class="led_container">
+                        <h5>Đèn 2</h5>
+                        <input type="checkbox" id="led 2" name="led" disabled="true" />
+                    </div>    
+                    <div class="led_container">
+                        <h5>Đèn 3</h5>
+                        <input type="checkbox" id="led 3" name="led" disabled="true" />
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div id="field_2">HTTP
+            <div class="http_field">        
+                <h1>Thông số nhiệt độ, độ ẩm không khí</h1>
+                <div class="label_container">
+                    <div class="label_wrapper temp">
+                        <a href="/" id="label_logo"><i class="fas fa-temperature-low"></i></a>
+                        <h2>Temp</h2> 
+                        <div id="input">
+                            <span id="temp" style="font-weight: bold;"> 26 </span><br>
+                            <h2>    &#176;C</h2>
+                        </div>
+                    </div>
+                    <div class="label_wrapper humd"> 
+                        <a href="/" id="label_logo"><i class="fas fa-tint"></i></a>                   
+                        <h2>Humid</h2> 
+                        <div id="input">
+                        <span id="humd" style="font-weight: bold;"> 70</span><br>
+                        <h2>    %</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <!--AJAX/ Vẽ đồ thị-->
+                    <!-- thiết lập kích thước cho graph thông qua id ChartContainer đã thiết lập ở trên  -->
+                    
+                <!-------------------------------------------------------------------------------------->
+            <div id="ChartContainer"></div>
+        </div>    
+    </div>
+    <!---->
+    <!-- <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a> -->
+    <!-- <div class="slide">
+        <h2 id="slide_1"></h2>
+        <h2>Lý thuyết</h2>
+        <div class="field_3">   
+        </div>
+        <div class="field_3_1">   
+        </div>
+        <div class="field_3_2">   
+        </div>
+        <div class="field_3_3">   
+        </div>
+        <h2 id="slide_2"></h2>
+        <h2>Sơ đồ mô tả hệ thống</h2>
+        <div class="field_4">
+            
+        </div>
+        <h2 id="slide_3"></h2>
+        <h2>Giao tiếp Server - Client bằng HTTP</h2>
+        <div class="field_5">
+            
+        </div>
+        <h2 id="slide_4"></h2>
+        <h2>Giao tiếp Server - Client bằng WebSocket</h2>
+        <div class="field_6">
+            
+        </div>
+    </div> -->
+    <!--Footer-->
+    <div class="footer">
+            <span class="footer_image"></span>
+            <div class="social_media">       
+                <p class="website_rights">© ERAN 2021. All rights reserved</p> 
+                <div class="social_icons">
+                    <a
+                    class="social__icon--link"
+                    href="/"
+                    target="_blank"
+                    aria-label="Facebook"
+                    >
+                    <i class="fab fa-facebook"></i>
+                    </a>
+                    <a
+                    class="social__icon--link"
+                    href="/"
+                    target="_blank"
+                    aria-label="Instagram"
+                    >
+                    <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                    class="social__icon--link"
+                    href="/"
+                    target="_blank"
+                    aria-label="Youtube"
+                    >
+                    <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="student_infor">
+                <div>
+                    <a href="/" class="student_logo"><i class="fas fa-user"></i></a>
+                    <p class="website_infor">Sinh viên thực hiện: Trần Quốc Chương</p>
+                </div>
+                <div>
+                    <a href="/" class="id_logo"><i class="fas fa-id-card"></i></a>
+                    <p class="website_infor">MSSV: 1810058</p>
+                </div>
+                <div>
+                    <a href="/" class="gv_logo"><i class="fas fa-user-graduate"></i></a>
+                    <p class="website_infor">GVHD: T.S Trương Quang Vinh</p>
+                </div>
+              </div>   
+    </div>
+        <!--Nhúng file js-->
+        <script type="text/javascript" src="/main.js">
+        </script>
+	</body>
+</html>

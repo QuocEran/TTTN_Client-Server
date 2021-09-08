@@ -1,0 +1,397 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+.nav{
+    background-image: linear-gradient(0, rgb(22, 13, 75, 0.2), rgba(30, 10, 50,0.3) ),
+    url(https://images.pexels.com/photos/1432669/pexels-photo-1432669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: 70% 36%;
+    background-size: auto;
+    height: 70px;
+    display: flex;
+    color: wheat;
+    justify-content:flex-start;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.nav_logo{
+    height: 60px;
+    width: 60px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/vi/thumb/f/f1/Logo_HCMUT.png/100px-Logo_HCMUT.png);
+    background-size: contain;
+}
+.nav_infor{
+    font-family: "Raleway", sans-serif ;
+    margin-left: 0.5rem;
+    display: flex;
+    font-size: small;
+    flex-direction: column;
+}
+
+.nav_infor_1{
+    font-weight: bold;
+    font-size:medium;
+    
+}
+.nav_menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 60px;
+}
+.nav_items{
+    height: 60px;
+}
+
+.nav_links{
+    color: wheat;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+
+.field{
+    background-color: rgb(253, 251, 255) ;
+    display: flex;
+    justify-content: space-around;
+}
+
+#field_1{
+    height: 565px;
+    border-radius: 20px;
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    width: 400px;
+    background-color: aqua;   
+    position: relative;
+}
+#field_2{
+    height: 565px;
+    width: 740px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    border: solid;
+    border-radius: 20px;
+    margin: 1.5rem;
+}
+
+.infor_image{
+    border-radius: 20px;
+    height: 140px;
+    width: 250px;
+    background-image: url(https://vietnix.vn/wp-content/uploads/2021/06/client-server.webp) ;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.infor{
+    margin-bottom: 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    text-align: center;
+    width: 400px;
+}
+.ws_field{
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    border: solid;
+    border-radius: 20px;
+    border-style: solid;
+    margin-top: 1rem;
+    height: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ws_status{
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    width: 300px;
+    background-color: bisque;
+    margin: 1rem 1rem;
+}
+.ws_field h4{
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+.button_status,.rainsensor_status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 300px;
+    background-color: bisque;
+    border-radius: 20px;
+    margin: 1rem 1rem;
+}
+.led_status{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    border-radius: 20px;
+    margin: 1rem 0;
+    height: 40px;
+    width: 300px;
+}
+.led_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.1cm;
+}
+#field_1 i{
+    background-image: linear-gradient(to top, black 0%, rgb(46, 44, 44) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+#ChartContainer{
+    height: 300px;
+    width: 720px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0 0;
+}
+.http_field{
+    width: 720px;
+    border-radius: 20px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.http_field h1{
+    margin: 1rem;
+    justify-content:end;
+    align-items: center;
+    text-align: center;
+    width: 700px;
+}
+
+.label_container {
+    display: flex;
+}
+
+.label_wrapper{
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    margin: 1rem 2rem 1rem;
+}
+
+.label_wrapper h2{
+    width: 80px;
+    text-align: center;
+}
+.label_wrapper.temp{
+    background-color: rgb(230, 91, 10);
+    background-size: cover;
+    color: white;
+}
+.label_wrapper.humd{
+    background-color: rgb(10, 80, 230);
+    background-size: cover;
+    color: white;
+}
+
+#input{
+    margin: 0.1rem;
+    font-style: bold;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#label_logo{
+    background-image: linear-gradient(to top, white 0%, #ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    align-items: center;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+#input span{
+    text-align: center;
+    width: 100px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* To-top */
+/* .to-top {
+    background-color:tan;
+    position: fixed;
+    bottom: 60px;
+    right:  10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    opacity: 0  ;
+    transition: all 0.4s;
+    z-index: 1;
+}
+.to-top.active{
+    bottom: 32px;
+    opacity: 1;
+} */
+
+.footer{
+    background-image: linear-gradient(0, rgb(22, 13, 75, 0.7), rgba(30, 10, 50, 0.5)),
+    url(https://images.pexels.com/photos/1448561/pexels-photo-1448561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    background-position: 40% 50%;
+    height: 100px;
+    display: flex;
+    bottom: 0;
+    z-index: 999;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+.footer_image{
+    margin-left: 3rem;
+    background-image: url(http://doe.dee.hcmut.edu.vn/uploads/logo_bmdt_vi.png);
+    background-size: cover;
+    height: 80px;
+    width: 320px;
+    size: 100%;
+}
+.social_media{
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.student_infor{
+    color: wheat;
+    border: solid;
+    border-radius: 20px;
+    border-color: brown;
+    border-style: solid;
+    height: 80px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-right: 3rem;
+}
+.student_infor div{
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.student_infor a{
+    color: rgb(163, 143, 107);
+    width: 30px;
+    display: flex;
+    justify-content: center;
+}
+.social_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+}
+.social__icon--link{
+    margin: 0.5rem 1rem 0 1rem;
+    color: wheat;
+    font-size: 24px;
+}
+
+/* .slide{
+    background-image: url();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slide_1,#slide_2,#slide_3,#slide_4{
+    height: 80px;
+}
+
+.field_3,.field_4,.field_5,.field_6{
+    height: 80vh;
+    width: 90vw;
+    background-color:rgb(28, 253, 178);
+    border-radius: 20px;
+    border: solid;
+    margin-top: 0.5rem;
+}
+
+.field_3_1,.field_3_2,.field_3_3{
+    height: 80vh;
+    width: 90vw;
+    background-color:rgb(28, 253, 178);
+    border-radius: 20px;
+    border: solid;
+    margin-top: 4rem;
+} */
